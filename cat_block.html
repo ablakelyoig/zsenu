@@ -18,20 +18,34 @@ function getQueryVariable(variable)
 }
 var e = Date.now();
 var d = new Date(e);
-document.write("<div><p align=left><br>Time of event: "+d);
-var url = window.location.href;
-document.write("<br>URL: "+getQueryVariable("url"));
-document.write("<br>Referer: "+getQueryVariable("referer"));
-document.write("<br>Reason: "+getQueryVariable("reason"));
-document.write("<br>Action: "+getQueryVariable("action"));
-document.write("<br>Nature of block: "+getQueryVariable("kind"));
-document.write("<br>Category: "+getQueryVariable("cat"));
-document.write("<br>User: "+getQueryVariable("user"));
-document.write("<br>Rule ID: "+getQueryVariable("rule"));
-document.write("<br>Timebound: "+getQueryVariable("timebound"));
-document.write("<br>Reason: "+getQueryVariable("reasoncode"));
-document.write("<br>Zscaler useful code: "+getQueryVariable("zsq"));
+//document.write("<div><p align=left><br>Time of event: "+d);
+//var url = window.location.href;
+const url = getQueryVariable("url");
+const referer = getQueryVariable("referer");
+const reason = getQueryVariable("reason");
+const action = getQueryVariable("action");
+const kind = getQueryVariable("kind");
+const cat = getQueryVariable("cat");
+const user = getQueryVariable("user");
+const rule = getQueryVariable("rule");
+const timebound = getQueryVariable("timebound");
+const reasoncode = getQueryVariable("reasoncode");
+const zsq = getQueryVariable("zsq");
+
+
+//document.write("<br>URL: "+getQueryVariable("url"));
+//document.write("<br>Referer: "+getQueryVariable("referer"));
+//document.write("<br>Reason: "+getQueryVariable("reason"));
+//document.write("<br>Action: "+getQueryVariable("action"));
+//document.write("<br>Nature of block: "+getQueryVariable("kind"));
+//document.write("<br>Category: "+getQueryVariable("cat"));
+//document.write("<br>User: "+getQueryVariable("user"));
+//document.write("<br>Rule ID: "+getQueryVariable("rule"));
+//document.write("<br>Timebound: "+getQueryVariable("timebound"));
+//document.write("<br>Reason: "+getQueryVariable("reasoncode"));
+//document.write("<br>Zscaler useful code: "+getQueryVariable("zsq"));
 //document.write("<br>Page location: "+window.location.href);
+
 </script>
 <!--Dept of Housing and Urban Devel-Ofc of Insp Gen (HUD OIG)-->
 <style type="text/css">
@@ -432,18 +446,18 @@ Sorry, you don't have permission to visit this site.
 <b>Website blocked</b>
 </td></tr>
 <tr><td class="eu_co rsn">
-<b>${REASON}</b>
-<b>${RULE}</b>
-<b>${CAT}</b>
+<b>{{reason}}</b>
+<b>{{rule}}</b>
+<b>{{cat}}</b>
 </td></tr>
 <tr><td class="eu_co">
-You tried to visit:<div class="eu_l"><a href="${URL}">${URL}</a></div>
+You tried to visit:<div class="eu_l"><a href="{{url}}">{{url}}</a></div>
 </td></tr><tr>
 <td class="hr"><hr></td>
 </tr>
 <tr>
 <td class="eu_co">
-<button class="button button2"><a href="mailto:servicedesk@hudoig.gov?subject=Website%20Unblock%20Request%20for%20${URL}&body=IT%20Support%2C%0A%0AI%20believe%20the%20following%20website%20has%20been%20incorrectly%20blocked%20and%20request%20a%20review.%0A%0A---Incident%20Details---%0AURL%3A%20${URL}%0ACategory%3A%20${CATEGORY}%0AReason%3A%20${REASON}%0A---End%20Details---%0A%0AJustification%2FBusiness%20Need%3A%20%3C%3C%20Enter%20justification%20here%20%3E%3E%0A%0AThank%20You" >
+<button class="button button2"><a href="mailto:servicedesk@hudoig.gov?subject=Website%20Unblock%20Request%20for%20{{url}}&body=IT%20Support%2C%0A%0AI%20believe%20the%20following%20website%20has%20been%20incorrectly%20blocked%20and%20request%20a%20review.%0A%0A---Incident%20Details---%0AURL%3A%20{{url}}%0ACategory%3A%20{{cat}}%0AReason%3A%20{{reason}}%0A---End%20Details---%0A%0AJustification%2FBusiness%20Need%3A%20%3C%3C%20Enter%20justification%20here%20%3E%3E%0A%0AThank%20You" >
 Request Unblock</a></button>
 
 <br><br>
