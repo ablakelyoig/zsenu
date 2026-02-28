@@ -252,10 +252,6 @@
                         <span id="blockedUrl">-</span>
                     </div>
                     <div class="info-card">
-                        <label>User</label>
-                        <span id="username">-</span>
-                    </div>
-                    <div class="info-card">
                         <label>Category</label>
                         <span id="category">Security Risk</span>
                     </div>
@@ -306,14 +302,11 @@
         }
         if (urlParams.get('policy')) {
             document.getElementById('policy').textContent = policy;
-        }
-        if (urlParams.get('blockedUrl')) {
-            document.getElementById('blockedUrl').textContent = blockedUrl;
         }		
 
         // Build email body with all details
         const emailSubject = 'Zscaler Access Request';
-        const emailBody = `HUD OIG IT Sevice Desk,
+        const emailBody = `HUD OIG IT Sevice Desk`,
 
 I am requesting access to a website that has been blocked by Zscaler.
 
