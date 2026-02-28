@@ -249,7 +249,7 @@
                 <div class="info-grid">
                     <div class="info-card">
                         <label>URL</label>
-                        <span id="url">-</span>
+                        <span id="blockedUrl">-</span>
                     </div>
                     <div class="info-card">
                         <label>User</label>
@@ -307,6 +307,9 @@
         if (urlParams.get('policy')) {
             document.getElementById('policy').textContent = policy;
         }
+        if (urlParams.get('blockedUrl')) {
+            document.getElementById('blockedUrl').textContent = blockedUrl;
+        }		
 
         // Build email body with all details
         const emailSubject = 'Zscaler Access Request';
