@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Notification - Zscaler</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #0066cc;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .alert-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 16px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .alert-box h2 {
+            color: #856404;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .alert-box p {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .info-section {
+            margin-bottom: 25px;
+        }
+
+        .info-section h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .info-section ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+
+        .info-card label {
+            display: block;
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .info-card span {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            word-break: break-all;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #6c757d;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 8V12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 16H12.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h1>Access Notification</h1>
+            <p>Protected by Zscaler Internet Access</p>
+        </div>
+
+        <div class="content">
+            <div class="alert-box">
+                <h2>⚠️ Access Restricted</h2>
+                <p>The website you are trying to access has been blocked or restricted by your organization's security policy.</p>
+            </div>
+
+            <div class="info-section">
+                <h3>Why am I seeing this?</h3>
+                <p>Your organization uses Zscaler to protect against security threats and enforce acceptable use policies. This page may have been blocked for one of the following reasons:</p>
+                <ul>
+                    <li>Security threat or malicious content detected</li>
+                    <li>Content category violates organizational policy</li>
+                    <li>Bandwidth or productivity restrictions</li>
+                    <li>Compliance or regulatory requirements</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h3>Request Details</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <label>Timestamp</label>
+                        <span id="timestamp">-</span>
+                    </div>
+                    <div class="info-card">
+                        <label>User</label>
+                        <span id="username">-</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Category</label>
+                        <span id="category">Security Risk</span>
+                    </div>
+                    <div class="info-card">
+                        <label>Policy</label>
+                        <span id="policy">Corporate Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>What should I do?</h3>
+                <p>If you believe this page has been blocked in error or you require access for business purposes, please contact your IT department or help desk.</p>
+            </div>
+
+            <div class="actions">
+                <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
+                <a href="#" id="requestAccessBtn" class="btn btn-primary">Request Access</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                Protected by <strong>Zscaler</strong><br>
+                For assistance, contact your IT Help Desk or visit <a href="#">support portal</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Set current timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+
+        // Try to get parameters from query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('user') || '-';
+        const category = urlParams.get('category') || 'Security Risk';
+        const policy = urlParams.get('policy') || 'Corporate Security';
+        const blockedUrl = urlParams.get('url') || document.referrer || window.location.href;
+        const reason = urlParams.get('reason') || 'Access restricted by security policy';
+
+        // Update display fields
+        if (urlParams.get('user')) {
+            document.getElementById('username').textContent = username;
+        }
+        if (urlParams.get('category')) {
+            document.getElementById('category').textContent = category;
+        }
+        if (urlParams.get('policy')) {
+            document.getElementById('policy').textContent = policy;
+        }
+
+        // Build email body with all details
+        const emailSubject = 'Zscaler Access Request';
+        const emailBody = `Hello IT Support,
+
+I am requesting access to a website that has been blocked by Zscaler.
+
+Request Details:
+- User: ${username}
+- Blocked URL: ${blockedUrl}
+- Category: ${category}
+- Policy: ${policy}
+- Reason: ${reason}
+- Timestamp: ${new Date().toLocaleString()}
+
+Business Justification:
+[Please explain why you need access to this site]
+
+Thank you,
+${username}`;
+
+        // Set up the Request Access button with mailto link
+        const requestAccessBtn = document.getElementById('requestAccessBtn');
+        requestAccessBtn.href = `mailto:helpdesk@yourcompany.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    </script>
+</body>
+</html>
