@@ -314,6 +314,12 @@
         if (urlParams.get('policy')) {
             document.getElementById('policy').textContent = policy;
         }
+        if (urlParams.get('reason')) {
+            document.getElementById('reason').textContent = reason;
+        }
+        if (urlParams.get('url')) {
+            document.getElementById('url').textContent = blockedUrl;
+        }
 
         // Build email body with all details
         const emailSubject = 'Zscaler Access Request';
