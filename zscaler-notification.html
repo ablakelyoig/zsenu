@@ -13,9 +13,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            //background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-color:#e3e3e3;
-			min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -248,8 +247,12 @@
                 <h3>Request Details</h3>
                 <div class="info-grid">
                     <div class="info-card">
-                        <label>URL</label>
-                        <span id="blockedUrl">-</span>
+                        <label>Timestamp</label>
+                        <span id="timestamp">-</span>
+                    </div>
+                    <div class="info-card">
+                        <label>User</label>
+                        <span id="username">-</span>
                     </div>
                     <div class="info-card">
                         <label>Category</label>
@@ -302,11 +305,11 @@
         }
         if (urlParams.get('policy')) {
             document.getElementById('policy').textContent = policy;
-        }		
+        }
 
         // Build email body with all details
         const emailSubject = 'Zscaler Access Request';
-        const emailBody = `HUD OIG IT Sevice Desk`,
+        const emailBody = `Hello IT Support,
 
 I am requesting access to a website that has been blocked by Zscaler.
 
@@ -326,7 +329,7 @@ ${username}`;
 
         // Set up the Request Access button with mailto link
         const requestAccessBtn = document.getElementById('requestAccessBtn');
-        requestAccessBtn.href = `mailto:servicedesk@hudoig.gov?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        requestAccessBtn.href = `mailto:helpdesk@yourcompany.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     </script>
 </body>
 </html>
