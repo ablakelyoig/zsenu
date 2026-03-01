@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color:#e3e3e3;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -25,7 +25,7 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+            max-width: 1000px;
             width: 100%;
             overflow: hidden;
         }
@@ -279,7 +279,7 @@
         <div class="footer">
             <p>
                 Protected by <strong>Zscaler</strong><br>
-                For assistance, contact your IT Help Desk or visit <a href="#">support portal</a>
+                For assistance, contact your IT Help Desk or visit <a href="https://hudoigprod.servicenowservices.com/serviceportal" target="_blank" rel="noopener noreferrer">Service Desk Portal</a>
             </p>
         </div>
     </div>
@@ -309,7 +309,7 @@
 
         // Build email body with all details
         const emailSubject = 'Zscaler Access Request';
-        const emailBody = `Hello IT Support,
+        const emailBody = `HUD OIG Service Desk,
 
 I am requesting access to a website that has been blocked by Zscaler.
 
@@ -329,7 +329,7 @@ ${username}`;
 
         // Set up the Request Access button with mailto link
         const requestAccessBtn = document.getElementById('requestAccessBtn');
-        requestAccessBtn.href = `mailto:helpdesk@yourcompany.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        requestAccessBtn.href = `mailto:servicedesk@hudoig.gov?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     </script>
 </body>
 </html>
